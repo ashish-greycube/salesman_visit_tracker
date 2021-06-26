@@ -8,6 +8,7 @@
   "customer_name",
   "contact",
   "plan_date",
+  "sales_partner",
   "visit_ref",
   "status"
  ],
@@ -38,7 +39,8 @@
   {
    "fieldname": "plan_date",
    "fieldtype": "Date",
-   "label": "Plan Date"
+   "label": "Plan Date",
+   "reqd": 1
   },
   {
    "fieldname": "visit_ref",
@@ -52,10 +54,18 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Open\nCompleted"
+  },
+  {
+   "fieldname": "sales_partner",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Sales Partner",
+   "options": "Sales Partner",
+   "reqd": 1
   }
  ],
  "istable": 1,
- "modified": "2021-06-26 09:46:42.447170",
+ "modified": "2021-06-26 12:51:23.307409",
  "modified_by": "Administrator",
  "module": "Salesman Visit Tracker",
  "name": "Customer Visit Plan Detail",

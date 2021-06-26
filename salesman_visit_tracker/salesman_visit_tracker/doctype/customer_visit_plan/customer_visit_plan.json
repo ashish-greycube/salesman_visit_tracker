@@ -7,7 +7,6 @@
  "field_order": [
   "naming_series",
   "transaction_date",
-  "sales_person",
   "customer_visit_plan_detail",
   "amended_from"
  ],
@@ -28,14 +27,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "sales_person",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Sales Person",
-   "options": "Sales Person",
-   "reqd": 1
-  },
-  {
    "fieldname": "customer_visit_plan_detail",
    "fieldtype": "Table",
    "label": "Customer Visit Plan Detail",
@@ -52,7 +43,7 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2021-06-26 09:31:38.499922",
+ "modified": "2021-06-26 12:50:14.263107",
  "modified_by": "Administrator",
  "module": "Salesman Visit Tracker",
  "name": "Customer Visit Plan",
