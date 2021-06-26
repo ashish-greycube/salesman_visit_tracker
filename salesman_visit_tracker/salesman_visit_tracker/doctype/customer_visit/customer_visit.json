@@ -12,6 +12,7 @@
   "contact",
   "sales_person",
   "cb_1",
+  "plan_reference",
   "actual_date",
   "status",
   "sample_required",
@@ -104,9 +105,16 @@
    "fieldtype": "Geolocation",
    "label": "Current Location",
    "no_copy": 1
+  },
+  {
+   "fieldname": "plan_reference",
+   "fieldtype": "Link",
+   "label": "Plan Reference",
+   "options": "Customer Visit Plan",
+   "read_only": 1
   }
  ],
- "modified": "2021-06-26 09:42:30.681886",
+ "modified": "2021-06-26 09:45:48.687987",
  "modified_by": "Administrator",
  "module": "Salesman Visit Tracker",
  "name": "Customer Visit",
