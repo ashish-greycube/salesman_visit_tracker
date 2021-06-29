@@ -9,7 +9,7 @@
   "contact",
   "plan_date",
   "sales_partner",
-  "visit_ref",
+  "customer_visit_reference_cf",
   "status"
  ],
  "fields": [
@@ -43,12 +43,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "visit_ref",
-   "fieldtype": "Link",
-   "label": "Visit Ref",
-   "options": "Customer Visit"
-  },
-  {
    "default": "Open",
    "fieldname": "status",
    "fieldtype": "Select",
@@ -62,10 +56,17 @@
    "label": "Sales Partner",
    "options": "Sales Partner",
    "reqd": 1
+  },
+  {
+   "fieldname": "customer_visit_reference_cf",
+   "fieldtype": "Link",
+   "label": "Visit Reference",
+   "options": "Customer Visit",
+   "read_only": 1
   }
  ],
  "istable": 1,
- "modified": "2021-06-26 12:51:23.307409",
+ "modified": "2021-06-29 10:01:20.547551",
  "modified_by": "Administrator",
  "module": "Salesman Visit Tracker",
  "name": "Customer Visit Plan Detail",

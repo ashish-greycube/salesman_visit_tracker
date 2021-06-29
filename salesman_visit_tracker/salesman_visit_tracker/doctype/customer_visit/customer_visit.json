@@ -10,7 +10,7 @@
   "customer",
   "customer_name",
   "contact",
-  "sales_person",
+  "sales_partner",
   "cb_1",
   "plan_reference",
   "actual_date",
@@ -19,13 +19,13 @@
   "section_break_11",
   "customer_visit_item",
   "remarks",
-  "current_location"
+  "current_location",
+  "amended_from"
  ],
  "fields": [
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
-   "in_list_view": 1,
    "label": "Series",
    "options": "V-.#",
    "reqd": 1
@@ -33,6 +33,7 @@
   {
    "fieldname": "planned_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Planned Date",
    "read_only": 1
   },
@@ -48,20 +49,16 @@
    "fetch_from": "customer.customer_name",
    "fieldname": "customer_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Customer Name",
    "read_only": 1
   },
   {
    "fieldname": "contact",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Contact",
    "options": "Contact"
-  },
-  {
-   "fieldname": "sales_person",
-   "fieldtype": "Link",
-   "label": "Sales Person",
-   "options": "Sales Person"
   },
   {
    "fieldname": "cb_1",
@@ -76,6 +73,7 @@
    "default": "Open",
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Status",
    "options": "Open\nCompleted"
   },
@@ -90,6 +88,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.sample_required;",
    "fieldname": "customer_visit_item",
    "fieldtype": "Table",
    "label": "Customer Visit Item",
@@ -103,18 +102,34 @@
   {
    "fieldname": "current_location",
    "fieldtype": "Geolocation",
+   "hidden": 1,
    "label": "Current Location",
    "no_copy": 1
   },
   {
    "fieldname": "plan_reference",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Plan Reference",
-   "options": "Customer Visit Plan",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sales_partner",
+   "fieldtype": "Link",
+   "label": "Sales Partner",
+   "options": "Sales Partner"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Customer Visit",
+   "print_hide": 1,
    "read_only": 1
   }
  ],
- "modified": "2021-06-26 09:45:48.687987",
+ "is_submittable": 1,
+ "modified": "2021-06-28 16:56:31.518164",
  "modified_by": "Administrator",
  "module": "Salesman Visit Tracker",
  "name": "Customer Visit",

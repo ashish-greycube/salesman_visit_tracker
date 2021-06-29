@@ -26,7 +26,7 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {"Customer Visit" : "public/js/salesman_visit_tracker.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -39,7 +39,7 @@ app_license = "MIT"
 
 # website user home page (by Role)
 # role_home_page = {
-#	"Role": "home_page"
+# 	"Role": "home_page"
 # }
 
 # Website user home page (by function)
@@ -56,6 +56,7 @@ app_license = "MIT"
 
 # before_install = "salesman_visit_tracker.install.before_install"
 # after_install = "salesman_visit_tracker.install.after_install"
+after_migrate = "salesman_visit_tracker.install.after_migrate"
 
 # Desk Notifications
 # ------------------
@@ -84,7 +85,7 @@ app_license = "MIT"
 # 		"on_update": "method",
 # 		"on_cancel": "method",
 # 		"on_trash": "method"
-#	}
+# 	}
 # }
 
 # Scheduled Tasks
@@ -126,4 +127,3 @@ app_license = "MIT"
 # override_doctype_dashboards = {
 # 	"Task": "salesman_visit_tracker.task.get_dashboard_data"
 # }
-

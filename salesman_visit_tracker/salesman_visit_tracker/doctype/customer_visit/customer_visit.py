@@ -3,8 +3,28 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-# import frappe
+
+import frappe
+from frappe.utils import cint, cstr
 from frappe.model.document import Document
+import json
 
 class CustomerVisit(Document):
-	pass
+    def onload(self):
+        for d in frappe.db.get_values(
+            "Customer",
+            self.customer,
+            ["is_location_validation_mandatory_cf", "client_location_cf"],
+            as_dict=True,
+        ):
+            if d.is_location_validation_mandatory_cf == "Yes" and d.client_location_cf:
+                for f in json.loads(d.client_location_cf).get("features", []):
+                    coords = reversed([cstr(coord) for coord in f.get("geometry", {}).get("coordinates")])
+                    self.set_onload("client_location_cf", coords)
+                    break
+
+    def on_submit(self):
+        if not self.actual_date and self.status in [
+            "Completed",
+        ]:
+            self.actual_date = frappe.utils.today()
