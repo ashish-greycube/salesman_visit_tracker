@@ -9,6 +9,7 @@ from frappe.utils import cint, cstr
 from frappe.model.document import Document
 import json
 
+
 class CustomerVisit(Document):
     def onload(self):
         for d in frappe.db.get_values(
@@ -19,7 +20,12 @@ class CustomerVisit(Document):
         ):
             if d.is_location_validation_mandatory_cf == "Yes" and d.client_location_cf:
                 for f in json.loads(d.client_location_cf).get("features", []):
-                    coords = reversed([cstr(coord) for coord in f.get("geometry", {}).get("coordinates")])
+                    coords = reversed(
+                        [
+                            cstr(coord)
+                            for coord in f.get("geometry", {}).get("coordinates")
+                        ]
+                    )
                     self.set_onload("client_location_cf", coords)
                     break
 
@@ -28,3 +34,15 @@ class CustomerVisit(Document):
             "Completed",
         ]:
             self.actual_date = frappe.utils.today()
+
+    def on_cancel(self):
+        self.status = "Cancelled"
+
+    def before_cancel(self):
+        frappe.db.sql(
+            """
+            update `tabCustomer Visit Plan Detail`
+            set customer_visit_reference_cf = null
+            where customer_visit_reference_cf = %s""",
+            (self.name),
+        )
