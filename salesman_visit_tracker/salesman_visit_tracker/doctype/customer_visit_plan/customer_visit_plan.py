@@ -8,8 +8,7 @@ from frappe.model.document import Document
 
 
 class CustomerVisitPlan(Document):
-    # def on_update(self):
-    def after_insert(self):
+    def on_submit(self):
         for d in self.customer_visit_plan_detail:
             visit = frappe.new_doc("Customer Visit")
             visit.update(
@@ -24,8 +23,28 @@ class CustomerVisitPlan(Document):
                 }
             )
             visit.insert()
-            print('*//'*100)
-            print(visit.name)
-            frappe.db.set_value('Customer Visit Plan Detail', d.name, 'customer_visit_reference_cf', visit.name)
+            frappe.db.set_value(
+                "Customer Visit Plan Detail",
+                d.name,
+                "customer_visit_reference_cf",
+                visit.name,
+            )
         self.reload()
-        # frappe.db.commit()
+
+
+@frappe.whitelist()
+@frappe.validate_and_sanitize_search_inputs
+def get_customer_contacts(doctype, txt, searchfield, start, page_len, filters):
+    return frappe.db.sql(
+        """select `tabContact`.name from `tabContact`, `tabDynamic Link`
+		where `tabDynamic Link`.link_doctype = 'Customer' and (`tabDynamic Link`.link_name=%(name)s
+		and `tabDynamic Link`.link_name like %(txt)s) and `tabContact`.name = `tabDynamic Link`.parent
+		limit %(start)s, %(page_len)s""",
+        {
+            "start": start,
+            "page_len": page_len,
+            "txt": "%%%s%%" % txt,
+            "name": filters.get("customer"),
+        },
+        debug=True,
+    )

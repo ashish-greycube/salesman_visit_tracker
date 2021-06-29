@@ -25,7 +25,6 @@
    "fetch_from": "customer.customer_name",
    "fieldname": "customer_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "Customer Name",
    "read_only": 1
   },
@@ -39,6 +38,7 @@
   {
    "fieldname": "plan_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Plan Date",
    "reqd": 1
   },
@@ -46,10 +46,12 @@
    "default": "Open",
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Status",
    "options": "Open\nCompleted"
   },
   {
+   "columns": 2,
    "fieldname": "sales_partner",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -60,13 +62,14 @@
   {
    "fieldname": "customer_visit_reference_cf",
    "fieldtype": "Link",
-   "label": "Visit Reference",
+   "in_list_view": 1,
+   "label": "Visit #",
    "options": "Customer Visit",
    "read_only": 1
   }
  ],
  "istable": 1,
- "modified": "2021-06-29 10:01:20.547551",
+ "modified": "2021-06-29 17:23:45.723761",
  "modified_by": "Administrator",
  "module": "Salesman Visit Tracker",
  "name": "Customer Visit Plan Detail",
