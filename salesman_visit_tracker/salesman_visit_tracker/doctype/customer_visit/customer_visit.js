@@ -3,8 +3,7 @@
 
 frappe.ui.form.on("Customer Visit", {
   refresh: function (frm) {
-    if (frm.doc.__onload)
-      // console.log("client_location_cf", frm.doc.__onload.client_location_cf);
+    //
   },
   validate: function (frm) {
     return new Promise((resolve, reject) => {
