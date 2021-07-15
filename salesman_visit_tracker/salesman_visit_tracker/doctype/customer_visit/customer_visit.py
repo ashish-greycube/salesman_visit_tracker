@@ -35,6 +35,15 @@ class CustomerVisit(Document):
         ]:
             self.actual_date = frappe.utils.today()
 
+    def on_update(self):
+        for d in frappe.get_all(
+            "Customer Visit Plan Detail",
+            filters=[["customer_visit_reference_cf", "=", self.name]],
+        ):
+            frappe.db.set_value(
+                "Customer Visit Plan Detail", d.name, "status", self.status
+            )
+
     def on_cancel(self):
         self.status = "Cancelled"
 
