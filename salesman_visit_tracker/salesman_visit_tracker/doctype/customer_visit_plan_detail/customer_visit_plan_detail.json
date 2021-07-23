@@ -8,9 +8,12 @@
   "customer_name",
   "contact",
   "plan_date",
+  "cb_1",
   "sales_partner",
   "customer_visit_reference_cf",
-  "status"
+  "status",
+  "from_time",
+  "to_time"
  ],
  "fields": [
   {
@@ -72,10 +75,24 @@
    "label": "Visit #",
    "options": "Customer Visit",
    "read_only": 1
+  },
+  {
+   "fieldname": "cb_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "from_time",
+   "fieldtype": "Time",
+   "label": "From Time"
+  },
+  {
+   "fieldname": "to_time",
+   "fieldtype": "Time",
+   "label": "To Time"
   }
  ],
  "istable": 1,
- "modified": "2021-06-29 18:22:48.662801",
+ "modified": "2021-07-23 15:40:29.437791",
  "modified_by": "Administrator",
  "module": "Salesman Visit Tracker",
  "name": "Customer Visit Plan Detail",

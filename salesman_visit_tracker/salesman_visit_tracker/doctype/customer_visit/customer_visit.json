@@ -14,6 +14,8 @@
   "cb_1",
   "plan_reference",
   "actual_date",
+  "from_time",
+  "to_time",
   "status",
   "sample_required",
   "section_break_11",
@@ -126,10 +128,22 @@
    "options": "Customer Visit",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "from_time",
+   "fieldtype": "Time",
+   "label": "From Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "to_time",
+   "fieldtype": "Time",
+   "label": "To Time",
+   "read_only": 1
   }
  ],
  "is_submittable": 1,
- "modified": "2021-06-29 19:00:11.820187",
+ "modified": "2021-07-23 15:42:43.242560",
  "modified_by": "Administrator",
  "module": "Salesman Visit Tracker",
  "name": "Customer Visit",
