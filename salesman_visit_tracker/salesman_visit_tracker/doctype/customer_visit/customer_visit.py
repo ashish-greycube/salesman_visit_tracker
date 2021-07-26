@@ -36,15 +36,20 @@ class CustomerVisit(Document):
         if self.from_time\
             and cint(frappe.db.get_value("Customer", self.customer, "validate_in_time_cf")):
             if time_diff_in_seconds(str(self.from_time), frappe.utils.nowtime()) > 0:
-                frappe.throw(_("Cannot save customer visit before {0}".format(self.from_time)))
+                frappe.throw(_("Cannot save customer visit before {0}").format(self.from_time))
 
         if self.to_time\
             and cint(frappe.db.get_value("Customer", self.customer, "validate_out_time_cf")):
             if time_diff_in_seconds(str(self.to_time), frappe.utils.nowtime()) < 0:
-                frappe.throw(_("Cannot save customer visit after {0}".format(self.to_time)))
+                frappe.throw(_("Cannot save customer visit after {0}").format(self.to_time))
 
         
     def on_submit(self):
+        if not self.status in [
+            "Completed", "Cancelled"
+        ]:
+            frappe.throw(_("Invalid status {0}. Can submit Visit only when status is Completed or Cancelled.").format(frappe.bold(self.status)))
+
         if not self.actual_date and self.status in [
             "Completed"
         ]:

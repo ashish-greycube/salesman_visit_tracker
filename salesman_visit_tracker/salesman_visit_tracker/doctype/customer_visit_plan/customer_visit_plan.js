@@ -15,3 +15,18 @@ frappe.ui.form.on("Customer Visit Plan", {
     };
   },
 });
+
+frappe.ui.form.on(
+  "Customer Visit Plan Detail",
+  "customer_visit_plan_detail_add",
+  function (frm) {
+    let items = frm.doc.customer_visit_plan_detail;
+    if (items.length) {
+      let row = items.reverse()[0];
+      if (!row.plan_date) {
+        row.plan_date = frm.doc.transaction_date;
+        refresh_field("plan_date", row.name, "customer_visit_plan_detail");
+      }
+    }
+  }
+);

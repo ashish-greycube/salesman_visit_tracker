@@ -2,9 +2,17 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Customer Visit", {
-  refresh: function (frm) {
-    //
+  _before_submit: function (frm) {
+    if (!["Completed", "Cancelled"].includes(frm.doc.status)) {
+      frappe.throw(
+        __(
+          "Invalid status <strong>{0}</strong>. Can submit Visit only when status is Completed or Cancelled.",
+          [frm.doc.status]
+        )
+      );
+    }
   },
+
   validate: function (frm) {
     return new Promise((resolve, reject) => {
       let client_location =
