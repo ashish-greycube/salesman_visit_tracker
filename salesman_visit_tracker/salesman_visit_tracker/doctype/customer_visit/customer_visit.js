@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Customer Visit", {
-  _before_submit: function (frm) {
+  before_submit: function (frm) {
     if (!["Completed", "Cancelled"].includes(frm.doc.status)) {
       frappe.throw(
         __(
