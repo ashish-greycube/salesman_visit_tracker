@@ -10,12 +10,21 @@ frappe.ui.form.on("Customer", {
     let lat_long = /\/\@(.*),(.*),/.exec(frm.doc.client_location_url_cf);
 
     if (lat_long && lat_long.length == 3) {
-      let point = L.marker(lat_long.slice(1)).toGeoJSON();
-      L.geoJSON(point).addTo(_map);
-      _map.setView(lat_long.slice(1), zoom);
-
-      //
-      frm.set_value("client_location_cf", JSON.stringify(point));
+      var geojsonFeature = {
+        type: "Feature",
+        properties: {
+          name: "Customer Location",
+          popupContent: "This is customer's location",
+        },
+        geometry: {
+          type: "Point",
+          coordinates: lat_long.slice(1),
+        },
+      };
+      let layer = L.geoJSON(geojsonFeature);
+      layer.addTo(_map);
+      fld.editableLayers.addLayer(layer);
+      fld.set_value(JSON.stringify(fld.editableLayers.toGeoJSON()));
     } else {
       frappe.throw(
         __(
