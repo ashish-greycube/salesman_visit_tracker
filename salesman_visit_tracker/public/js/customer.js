@@ -18,7 +18,7 @@ frappe.ui.form.on("Customer", {
         },
         geometry: {
           type: "Point",
-          coordinates: lat_long.slice(1),
+          coordinates: lat_long.slice(1).reverse(),
         },
       };
       let layer = L.geoJSON(geojsonFeature);
