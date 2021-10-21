@@ -17,7 +17,7 @@ frappe.ui.form.on("Customer Visit", {
     return new Promise((resolve, reject) => {
       let client_location =
         frm.doc.__onload && frm.doc.__onload.client_location_cf;
-      if (!client_location) {
+      if (!client_location || frm.doc.status == "Cancelled") {
         resolve(true);
       } else {
         frappe.get_user_location().then((user_loc) => {
