@@ -20,5 +20,15 @@ def get_data():
                 },
             ],
         },
+        {
+            "label": _("Setup"),
+            "items": [
+                {
+                    "type": "doctype",
+                    "name": "Salesman Visit Tracker Settings",
+                    "description": _("Salesman Visit Tracker Settings"),
+                },
+            ],
+        },
     ]
     return config

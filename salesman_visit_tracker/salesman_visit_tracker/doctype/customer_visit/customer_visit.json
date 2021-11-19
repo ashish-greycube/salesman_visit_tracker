@@ -69,7 +69,8 @@
   {
    "fieldname": "actual_date",
    "fieldtype": "Date",
-   "label": "Actual Date"
+   "label": "Actual Date",
+   "read_only": 1
   },
   {
    "default": "Open",
@@ -143,7 +144,7 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2021-07-23 15:42:43.242560",
+ "modified": "2021-11-19 18:24:59.725509",
  "modified_by": "Administrator",
  "module": "Salesman Visit Tracker",
  "name": "Customer Visit",

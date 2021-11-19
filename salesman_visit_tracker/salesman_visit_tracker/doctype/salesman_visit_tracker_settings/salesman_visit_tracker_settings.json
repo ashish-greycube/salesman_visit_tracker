@@ -1,0 +1,39 @@
+{
+ "creation": "2021-11-19 18:35:37.849018",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "max_distance_from_client_location"
+ ],
+ "fields": [
+  {
+   "description": "Maximum distance allowed for Customer Visit from Client Location ",
+   "fieldname": "max_distance_from_client_location",
+   "fieldtype": "Int",
+   "label": "Max Distance From Client Location"
+  }
+ ],
+ "issingle": 1,
+ "modified": "2021-11-19 19:02:37.313561",
+ "modified_by": "Administrator",
+ "module": "Salesman Visit Tracker",
+ "name": "Salesman Visit Tracker Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
