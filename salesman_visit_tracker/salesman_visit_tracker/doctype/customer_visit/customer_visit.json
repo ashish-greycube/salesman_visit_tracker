@@ -44,8 +44,7 @@
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Customer",
-   "options": "Customer",
-   "read_only": 1
+   "options": "Customer"
   },
   {
    "fetch_from": "customer.customer_name",
@@ -144,7 +143,7 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2021-11-19 18:24:59.725509",
+ "modified": "2022-01-17 17:32:35.995226",
  "modified_by": "Administrator",
  "module": "Salesman Visit Tracker",
  "name": "Customer Visit",
